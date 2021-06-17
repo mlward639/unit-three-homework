@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
-    <link rel="stylesheet" href="./assets/CSS/style.css" />
+    <link rel="stylesheet" href="./CSS/style.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -15,6 +15,21 @@
       <div class="card">
         <div class="card-header">
           <h2>Generate a Password</h2>
+        </div>
+        <!-- try doing with checkboxes
+        <div id="random-password">
+          <input type="text" id="password" /> <button id="copy">Copy</button>
+          <div id="settings">
+            <label for="length">Length</label>
+            <input type="number" id="length" value="16" min="8" max="64" />    
+            <label for="numbers">Include Numbers</label>
+            <input type="checkbox" id="numbers" checked />
+            <label for="symbols">Include Symbols</label>
+            <input type="checkbox" id="symbols" checked />
+          </div>
+          <button id="generate">Generate Password</button>
+        </div>>
+        END-->
         </div>
         <div class="card-body">
           <textarea
@@ -29,6 +44,6 @@
         </div>
       </div>
     </div>
-    <script src="./assets/JS/script.js"></script>
+    <script src="./JS/script.js"></script>
   </body>
 </html>
