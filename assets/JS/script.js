@@ -18,6 +18,8 @@ console.log("special array: " + special);
 
 //this function is triggered by click of Generate Password based off of HTML code
 function generateButton() {
+  //reset generatePassword from string at the end back to an array for the next run
+  generatePassword=[''];
   //Prompts to give the length for password
   var characterLength = prompt("Enter length of password (8-128 characters).");
   console.log("character length pre parse: " + characterLength);
@@ -122,7 +124,10 @@ function generateButton() {
     }
   }
 }
-
+//if i try to do it a second time on the same page, it gets an error : 
+/*generatePassword.push is not a function
+    at generateButton (script.js:113)
+    at HTMLButtonElement.onclick (index.html:28) */
 
 // Removed event listener to generate button b/c the html file included an on click function so it created a redundant loop through prompts. So could have removed Event listener or the code in HTML
 //generateBtn.addEventListener("click", generateButton);  
