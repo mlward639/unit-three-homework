@@ -35,90 +35,89 @@ function generateButton() {
 
     //lowercase
     var characterTypes = alert("Choose whether to include the following character types in your password.")
-      console.log(characterTypes);
+    console.log(characterTypes);
     var includeLowercase = prompt("Include lowercase characters? Y/N");
-      //in each prompt, changed user input of Y/N to uppercase if they entered lowercase y/n
-      includeLowercase = includeLowercase.toUpperCase();
-      console.log("Lowercase? " + includeLowercase);
-      // Error message if Y or N not chosen
-      if (includeLowercase !== "Y" && includeLowercase !== "N") {
-        alert("Error: You must enter either Y or N.");
-        generateButton();
-      };
-      //if they chose lowercase, that array will be included in password generation
-      if (includeLowercase === "Y") {
+    //in each prompt, changed user input of Y/N to uppercase if they entered lowercase y/n
+    includeLowercase = includeLowercase.toUpperCase();
+    console.log("Lowercase? " + includeLowercase);
+    // Error message if Y or N not chosen
+    if (includeLowercase !== "Y" && includeLowercase !== "N") {
+      alert("Error: You must enter either Y or N.");
+      generateButton();
+    };
+    //if they chose lowercase, that array will be included in password generation
+    if (includeLowercase === "Y") {
       characterOptions = characterOptions.concat(lowercase);
-      };
+    };
 
     //uppercase
     var includeUppercase = prompt("Include uppercase characters? Y/N");
-      includeUppercase = includeUppercase.toUpperCase();
-      console.log("Uppercase? " + includeUppercase);
-      //Error if Y/N not chosen
-      if (includeUppercase !== "Y" && includeUppercase !== "N") {
-        alert("Error: You must enter either Y or N");
-        generateButton();
-      };
-      //if they chose uppercase, that array is included in password generation
-      if (includeUppercase === "Y") {
-        characterOptions = characterOptions.concat(uppercase);
-      };
+    includeUppercase = includeUppercase.toUpperCase();
+    console.log("Uppercase? " + includeUppercase);
+    //Error if Y/N not chosen
+    if (includeUppercase !== "Y" && includeUppercase !== "N") {
+      alert("Error: You must enter either Y or N");
+      generateButton();
+    };
+    //if they chose uppercase, that array is included in password generation
+    if (includeUppercase === "Y") {
+      characterOptions = characterOptions.concat(uppercase);
+    };
 
     //numeric
     var includeNumeric = prompt("Include numeric characters? Y/N");
-      var includeNumeric = includeNumeric.toUpperCase();
-      console.log("Numbers? " + includeNumeric);
-      //Error if Y/N not chosen
-      if (includeNumeric !== "Y" && includeNumeric !== "N") {
-        alert("Error: You must enter either Y or N");
-        generateButton();
-      }
-      //if they chose numeric, that array is included in password generation
-      if (includeNumeric === "Y") {
-        characterOptions = characterOptions.concat(numeric);
-      };
+    var includeNumeric = includeNumeric.toUpperCase();
+    console.log("Numbers? " + includeNumeric);
+    //Error if Y/N not chosen
+    if (includeNumeric !== "Y" && includeNumeric !== "N") {
+      alert("Error: You must enter either Y or N");
+      generateButton();
+    }
+    //if they chose numeric, that array is included in password generation
+    if (includeNumeric === "Y") {
+      characterOptions = characterOptions.concat(numeric);
+    };
 
     //special
     var includeSpecial = prompt("Include special characters? Y/N");
-      includeSpecial = includeSpecial.toUpperCase();
-      console.log("Special characters? " + includeSpecial);
-      //Error if Y/N not chosen
-      if (includeSpecial !== "Y" && includeSpecial !== "N") {
-        alert("Error: You must enter either Y or N");
-        generateButton();
-      }
-      //if they chose special, that array is included in password generation
-      if (includeSpecial === "Y") {
-        characterOptions = characterOptions.concat(special);
-      };
+    includeSpecial = includeSpecial.toUpperCase();
+    console.log("Special characters? " + includeSpecial);
+    //Error if Y/N not chosen
+    if (includeSpecial !== "Y" && includeSpecial !== "N") {
+      alert("Error: You must enter either Y or N");
+      generateButton();
+    }
+    //if they chose special, that array is included in password generation
+    if (includeSpecial === "Y") {
+      characterOptions = characterOptions.concat(special);
+    };
 
     console.log("Chosen character options: " + characterOptions);
 
     //Error if no character types are selected 
     if (includeLowercase === "N" && includeUppercase === "N" && includeNumeric === "N" && includeSpecial === "N") {
-        alert("Error: Must select at least one character type.");
-        generateButton();
+      alert("Error: Must select at least one character type.");
+      generateButton();
     } else {
-
+    //generating random password
       console.log(characterLength, characterOptions)
-
+      //for loop based on characterLength chosen by user
       for (let i=0; i < characterLength; i++) {
-      var generateRandomNumber = Math.floor(Math.random() * characterOptions.length);
-      console.log("random number: " + generateRandomNumber);
-
-      var randomCharacter = characterOptions[generateRandomNumber];
-      console.log("random character: " + randomCharacter);
-
-      generatePassword.push(randomCharacter);
+        //generating random number
+        var generateRandomNumber = Math.floor(Math.random() * characterOptions.length);
+        console.log("random number: " + generateRandomNumber);
+        //using random number to randomly select character from the array characterOptions
+        var randomCharacter = characterOptions[generateRandomNumber];
+        console.log("random character: " + randomCharacter);
+        //for each loop, add the random character created to the generatePassword array
+        generatePassword.push(randomCharacter);
       } 
-
+      //join() to turn generatePassword array into string connected by '' so no commas in password-unless randomly selected
       generatePassword = generatePassword.join('');
-    
       console.log("Generated password: " + generatePassword);
-
       // add password text to webpage
       document.getElementById('password').value = generatePassword;
-      
+      //stop function
       return;
     }
   }
