@@ -124,10 +124,6 @@ function generateButton() {
     }
   }
 }
-//if i try to do it a second time on the same page, it gets an error : 
-/*generatePassword.push is not a function
-    at generateButton (script.js:113)
-    at HTMLButtonElement.onclick (index.html:28) */
 
 // Removed event listener to generate button b/c the html file included an on click function so it created a redundant loop through prompts. So could have removed Event listener or the code in HTML
 //generateBtn.addEventListener("click", generateButton);  
